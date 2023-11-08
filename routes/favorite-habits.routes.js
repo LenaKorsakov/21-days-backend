@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const MyHabit = require('../models/MyHabit.model');
+const FavouriteHabit = require('../models/FavouriteHabit.model');
 
 router.post('/', async (req, res, next) => {
   const userId = req.payload._id;
   try {
-    const newHabit = await MyHabit.create({
+    const newHabit = await FavouriteHabit.create({
       ...req.body,
       user: userId,
     });
@@ -14,30 +14,10 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-router.put('/:habitId', async (req, res, next) => {
-  try {
-    const { habitId } = req.params;
-    const userId = req.payload._id;
-    const habitToUpdate = await MyHabit.findByIdAndUpdate(
-      habitId,
-      {
-        ...req.body,
-        user: userId,
-      },
-      {
-        new: true,
-      }
-    );
-    res.status(204).json(habitToUpdate);
-  } catch (error) {
-    next(error);
-  }
-});
-
 router.delete('/:habitId', async (req, res, next) => {
   try {
     const { habitId } = req.params;
-    await MyHabit.findByIdAndDelete(habitId);
+    await FavouriteHabit.findByIdAndDelete(habitId);
     res.status(204).send();
   } catch (error) {
     next(error);
@@ -47,7 +27,7 @@ router.delete('/:habitId', async (req, res, next) => {
 router.get('/', async (req, res, next) => {
   const userId = req.payload._id;
   try {
-    const allUserHabits = await MyHabit.find({
+    const allUserHabits = await FavouriteHabit.find({
       user: userId,
     });
     res.json(allUserHabits);

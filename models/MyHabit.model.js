@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const { checkinSchema } = require('./Checkin.model');
 
 const myHabitSchema = new Schema(
   {
@@ -18,7 +17,7 @@ const myHabitSchema = new Schema(
         'relationships',
         'education',
         'hobbies',
-        'health'
+        'health',
       ],
       defailt: 'lifestyle',
     },
@@ -34,12 +33,6 @@ const myHabitSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'User',
     },
-    checkins: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Checkin',
-      },
-    ],
   },
   {
     timestamps: true,

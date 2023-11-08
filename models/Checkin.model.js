@@ -10,7 +10,7 @@ const checkinSchema = new Schema(
     user: {
       type: Schema.Types.ObjectId,
       ref: 'User',
-    } 
+    },
   },
   {
     timestamps: true,
@@ -19,5 +19,4 @@ const checkinSchema = new Schema(
 
 const Checkin = model('Checkin', checkinSchema);
 
-module.exports = { Checkin, checkinSchema };
- 
+module.exports = Checkin;
