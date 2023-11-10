@@ -2,11 +2,12 @@ const router = require('express').Router();
 const Checkin = require('../models/Checkin.model');
 
 router.post('/', async (req, res, next) => {
-  const userId = req.payload._id;
+  const userId = req.userId;
 
   try {
     const newCheckin = await Checkin.create({
       ...req.body,
+      date: new Date().toJSON(),
       user: userId,
     });
     res.status(201).json(newCheckin);

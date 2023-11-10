@@ -18,6 +18,7 @@ const myHabitSchema = new Schema(
         'education',
         'hobbies',
         'health',
+        'other',
       ],
       defailt: 'lifestyle',
     },

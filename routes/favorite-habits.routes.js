@@ -2,7 +2,7 @@ const router = require('express').Router();
 const FavouriteHabit = require('../models/FavouriteHabit.model');
 
 router.post('/', async (req, res, next) => {
-  const userId = req.payload._id;
+  const userId = req.userId;
   try {
     const newHabit = await FavouriteHabit.create({
       ...req.body,
@@ -25,7 +25,7 @@ router.delete('/:habitId', async (req, res, next) => {
 });
 
 router.get('/', async (req, res, next) => {
-  const userId = req.payload._id;
+  const userId = req.userId;
   try {
     const allUserHabits = await FavouriteHabit.find({
       user: userId,
