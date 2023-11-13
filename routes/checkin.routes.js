@@ -7,7 +7,6 @@ router.post('/', async (req, res, next) => {
   try {
     const newCheckin = await Checkin.create({
       ...req.body,
-      date: new Date().toJSON(),
       user: userId,
     });
     res.status(201).json(newCheckin);
