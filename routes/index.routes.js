@@ -12,5 +12,6 @@ router.use(isAuthenticated);
 router.use('/myhabits', require('./myhabits.routes'));
 router.use('/checkins', require('./checkin.routes'));
 router.use('/favorite-habits', require('./favorite-habits.routes'));
+router.use('/completed-habits', require('./completed-habits.routes'));
 
 module.exports = router;
