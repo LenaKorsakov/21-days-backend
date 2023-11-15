@@ -17,6 +17,7 @@ const favouriteHabitSchema = new Schema(
         'relationships',
         'education',
         'hobbies',
+        'health',
       ],
     },
     type: {

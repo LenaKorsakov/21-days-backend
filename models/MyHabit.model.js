@@ -25,7 +25,6 @@ const myHabitSchema = new Schema(
     type: {
       type: String,
       enum: ['build', 'quit'],
-      default: 'build',
     },
     description: String,
     emoji: String,
